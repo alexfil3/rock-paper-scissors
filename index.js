@@ -1,6 +1,6 @@
 let humanScore = 0;
 let computerScore = 0;
-console.log(humanScore, computerScore);
+console.log(`Human score: ${humanScore} Computer score: ${computerScore}`);
 
 // Getting a computer choice from: rock, paper and scissors
 function getComputerChoice() {
@@ -21,13 +21,16 @@ function getComputerChoice() {
 // Getting a human choice from: rock, paper and scissors
 function getHumanChoice() {
   const userChoice = prompt("Enter your choice: rock, paper or scissors");
-  const choice = userChoice.toLowerCase();
+  let choice;
+  if (userChoice !== null) {
+    choice = userChoice.toLowerCase();
+  }
 
   if (choice === "rock" || choice === "paper" || choice === "scissors") {
     return choice;
+  } else {
+    return userChoice;
   }
-
-  console.log("Please enter one of these: rock, paper or scissors");
 }
 
 // Choose a winner in current round
@@ -50,11 +53,13 @@ function playRound(humanChoice, computerChoice) {
   } else if (humanChoice === "scissors" && computerChoice === "paper") {
     humanScore += 1;
     console.log("human won");
+  } else if (humanChoice === null) {
+    console.log("Please enter one of these: rock, paper or scissors");
   } else {
     console.log("No one scored");
   }
 
-  console.log(humanScore, computerScore);
+  console.log(`Human score: ${humanScore} Computer score: ${computerScore}`);
 }
 
 // Check if someone has already won
@@ -65,7 +70,7 @@ function checkIsGameEnd(humanScore, computerScore) {
   return false;
 }
 
-// Play our game
+// Play the game
 function playGame() {
   while (!checkIsGameEnd(humanScore, computerScore)) {
     playRound(getHumanChoice(), getComputerChoice());
@@ -77,7 +82,7 @@ function playGame() {
     } else continue;
   }
 
-  console.log(humanScore, computerScore);
+  console.log(`Human score: ${humanScore} Computer score: ${computerScore}`);
 }
 
 playGame();
