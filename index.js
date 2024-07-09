@@ -1,6 +1,21 @@
+const buttonsList = document.querySelector(".buttons-list");
+
+buttonsList.addEventListener("click", getHumanChoice);
+
 let humanScore = 0;
 let computerScore = 0;
 console.log(`Human score: ${humanScore} Computer score: ${computerScore}`);
+
+// Getting a human choice from: rock, paper and scissors
+function getHumanChoice(e) {
+  const choice = e.target.id;
+
+  if (choice !== "rock" || choice !== "paper" || choice !== "scissors") {
+    return;
+  }
+
+  return choice;
+}
 
 // Getting a computer choice from: rock, paper and scissors
 function getComputerChoice() {
@@ -15,21 +30,6 @@ function getComputerChoice() {
       return "scissors";
     default:
       console.log("You can't be here");
-  }
-}
-
-// Getting a human choice from: rock, paper and scissors
-function getHumanChoice() {
-  const userChoice = prompt("Enter your choice: rock, paper or scissors");
-  let choice;
-  if (userChoice !== null) {
-    choice = userChoice.toLowerCase();
-  }
-
-  if (choice === "rock" || choice === "paper" || choice === "scissors") {
-    return choice;
-  } else {
-    return userChoice;
   }
 }
 
@@ -85,4 +85,4 @@ function playGame() {
   console.log(`Human score: ${humanScore} Computer score: ${computerScore}`);
 }
 
-playGame();
+// playGame();
