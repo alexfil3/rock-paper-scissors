@@ -13,23 +13,24 @@
 </head>
 <body>
     <div class="container">
-        <h1>Rock, Paper & Scissors</h1>
+        <h1 class="title">Rock, Paper & Scissors</h1>
         <ul class="buttons-list">
             <li class="glow-on-hover">
                 <button class="list-button" type="button" id="rock">Rock</button>
             </li>
-            <li class="list-item">
+            <li class="glow-on-hover">
                 <button class="list-button" type="button" id="paper">Paper</button>
             </li>
-            <li class="list-item">
+            <li class="glow-on-hover">
                 <button class="list-button" type="button" id="scissors">Scissors</button>
             </li>
         </ul>
         <div class="info">
-            <p class="round"></p>
+            <p class="round">Round <span></span></p>
             <p class="players">Human vs Computer</p>
-            <p class="score">Scores</p>
-            <p>Winner</p>
+            <p class="round-winner"></p>
+            <p class="score">Score <span></span></p>
+            <p class="winner">Winner:</p>
         </div>
     </div>
     <script src="index.js"></script>
